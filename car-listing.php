@@ -1,7 +1,7 @@
 <?php 
-session_start();
-include('includes/config.php');
-error_reporting(0);
+  session_start();
+  include('includes/config.php');
+  error_reporting(0);
 ?>
 
 <!DOCTYPE HTML>
@@ -28,13 +28,13 @@ error_reporting(0);
 <link href="assets/css/font-awesome.min.css" rel="stylesheet">
 
 <!-- SWITCHER -->
-		<link rel="stylesheet" id="switcher-css" type="text/css" href="assets/switcher/css/switcher.css" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/red.css" title="red" media="all" data-default-color="true" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/orange.css" title="orange" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/blue.css" title="blue" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/pink.css" title="pink" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/green.css" title="green" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/purple.css" title="purple" media="all" />
+<link rel="stylesheet" id="switcher-css" type="text/css" href="assets/switcher/css/switcher.css" media="all" />
+<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/red.css" title="red" media="all" data-default-color="true" />
+<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/orange.css" title="orange" media="all" />
+<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/blue.css" title="blue" media="all" />
+<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/pink.css" title="pink" media="all" />
+<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/green.css" title="green" media="all" />
+<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/purple.css" title="purple" media="all" />
         
 <!-- Fav and touch icons -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
@@ -74,28 +74,28 @@ error_reporting(0);
       <div class="col-md-9 col-md-push-3">
         <div class="result-sorting-wrapper">
           <div class="sorting-count">
-<?php 
-//Query for Listing count
-$sql = "SELECT id from tblvehicles";
-$query = $dbh -> prepare($sql);
-$query->bindParam(':vhid',$vhid, PDO::PARAM_STR);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=$query->rowCount();
-?>
-<p><span><?php echo htmlentities($cnt);?> Listings</span></p>
-</div>
-</div>
+            <?php 
+            //Query for Listing count
+            $sql = "SELECT id from tblvehicles";
+            $query = $dbh -> prepare($sql);
+            $query->bindParam(':vhid',$vhid, PDO::PARAM_STR);
+            $query->execute();
+            $results=$query->fetchAll(PDO::FETCH_OBJ);
+            $cnt=$query->rowCount();
+            ?>
+            <p><span><?php echo htmlentities($cnt);?> Listings</span></p>
+          </div>
+        </div>
 
-<?php $sql = "SELECT tblvehicles.*,tblbrands.BrandName,tblbrands.id as bid  from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{  ?>
+        <?php $sql = "SELECT tblvehicles.*,tblbrands.BrandName,tblbrands.id as bid  from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand";
+        $query = $dbh -> prepare($sql);
+        $query->execute();
+        $results=$query->fetchAll(PDO::FETCH_OBJ);
+        $cnt=1;
+        if($query->rowCount() > 0)
+        {
+        foreach($results as $result)
+        {  ?>
         <div class="product-listing-m gray-bg">
           <div class="product-listing-img"><img src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1);?>" class="img-responsive" alt="Image" style="width:300px; height:200px; margin:auto;"/> </a> 
           </div>
@@ -142,9 +142,9 @@ foreach($results as $result)
               <div class="form-group select">
                 <select class="form-control" name="fueltype">
                   <option>Select Fuel Type</option>
-<option value="Petrol">Petrol</option>
-<option value="Diesel">Diesel</option>
-<option value="CNG">CNG</option>
+                  <option value="Petrol">Petrol</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="CNG">CNG</option>
                 </select>
               </div>
              

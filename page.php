@@ -27,15 +27,6 @@ include('includes/config.php');
 <!--FontAwesome Font Style -->
 <link href="assets/css/font-awesome.min.css" rel="stylesheet">
 
-<!-- SWITCHER -->
-		<link rel="stylesheet" id="switcher-css" type="text/css" href="assets/switcher/css/switcher.css" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/red.css" title="red" media="all" data-default-color="true" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/orange.css" title="orange" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/blue.css" title="blue" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/pink.css" title="pink" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/green.css" title="green" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/purple.css" title="purple" media="all" />
-        
 <!-- Fav and touch icons -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.html">
@@ -48,27 +39,16 @@ include('includes/config.php');
         
 <!--Header-->
 <?php include('includes/header.php');?>
-                      <?php 
-$pagetype=$_GET['type'];
-$sql = "SELECT type,detail,PageName from tblpages where type=:pagetype";
-$query = $dbh -> prepare($sql);
-$query->bindParam(':pagetype',$pagetype,PDO::PARAM_STR);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{ ?>
+ 
 <section class="page-header aboutus_page">
   <div class="container">
     <div class="page-header_wrap">
       <div class="page-heading">
-        <h1><?php   echo htmlentities($result->PageName); ?></h1>
+        <h1>About Us</h1>
       </div>
       <ul class="coustom-breadcrumb">
         <li><a href="#">Home</a></li>
-        <li><?php   echo htmlentities($result->PageName); ?></li>
+        <li>About Us</li>
       </ul>
     </div>
   </div>
@@ -79,14 +59,13 @@ foreach($results as $result)
   <div class="container">
     <div class="section-header text-center">
 
-
-      <h2><?php   echo htmlentities($result->PageName); ?></h2>
+      <h2>About Us</h2>
       <p>Easy Car provides the best experience through comprehensive transportation solutions, starting from car rental. To make renting easy and hassle-free, we provide a variety of services and advantages. We have you covered with a variety of vehicles and flexible rental terms.
       Of course this success can be achieved thanks to Easy Car commitment to provide maximum customer satisfaction. In line with the changing times, we understand that society has an ever-increasing level of mobility and different needs. In response to all of that, Easy Car continues to innovate to provide a variety of comprehensive transportation solution services that prioritize safety, efficiency and comfort for all your needs.
       With all the services we offer, we believe that Easy Car can be your best reliable travel partner in all situations.
       </p>
+      <p>The easy car is designed to provide a seamless and effortless driving experience to its users. Combining a sleek exterior design with advanced technology, this vehicle is perfect for those seeking a hassle-free commute.With its user-friendly interface and intuitive controls, the easy car ensures that even novice drivers can confidently navigate the roads. This car offers a smooth and comfortable ride, making it an ideal choice for long trips or daily commutes.Equipped with state-of-the-art safety features, the easy car prioritizes the well-being of its passengers. From collision detection systems to adaptive cruise control, this vehicle offers peace of mind on every journey.</p>
     </div>
-   <?php } }?>
    
   </div>
 </section>
@@ -131,5 +110,4 @@ foreach($results as $result)
 
 </body>
 
-<!-- Mirrored from themes.webmasterdriver.net/carforyou/demo/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 16 Jun 2017 07:26:12 GMT -->
 </html>
